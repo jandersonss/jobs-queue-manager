@@ -1,0 +1,28 @@
+{
+  "name": "jobs-queue-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jobs-queue-manager.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jandersonss/jobs-queue-manager.git"
+  },
+  "keywords": [
+    "job",
+    "task",
+    "queue"
+  ],
+  "author": "Janderson Lemos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jandersonss/jobs-queue-manager/issues"
+  },
+  "homepage": "https://github.com/jandersonss/jobs-queue-manager#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1"
+  }
+}
