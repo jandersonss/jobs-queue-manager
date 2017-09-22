@@ -90,19 +90,20 @@ class JobsQueueManager {
         this.tasksList.filter((task) => {
             if (this.checkInteval(task)) {
                 task.lastExecution = Date.now();
-                tasksNames.push(task.function.name);
+                
+                tasksNames.push(task.function.name || 'AnonymousFunction');
                 // Adiciona promessa a fila de execução
                 this.fila.push(new Promise((resolve, reject) => {
                     task.function(resolve, reject);
                     this.checkMaxTimeExecutionLimit(resolve, reject);
                 }).then((data) => {
                     this.handerSuccess({
-                        functionName: task.function.name,
+                        functionName: task.function.name || 'AnonymousFunction',
                         data: data
                     });
                 }).catch((error) => {
                     this.handerError({
-                        functionName: task.function.name,
+                        functionName: task.function.name || 'AnonymousFunction',
                         error: error
                     });
                 }));
