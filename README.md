@@ -8,7 +8,8 @@
     const jobsQueueManager = new JobsQueueManager();
     // Arquivo
     jobsQueueManager.addTask(`${__dirname}/example.job`, 2, 's', true);
-	jobsQueueManager.addTask(function (JobQueueResolve, JobQueueReject){
+    // Função 
+    jobsQueueManager.addTask(function Example(JobQueueResolve, JobQueueReject){
     
     JobQueueResolve('ok');
 
