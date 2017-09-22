@@ -1,6 +1,6 @@
 {
   "name": "jobs-queue-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "jobs-queue-manager.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "task",
     "queue"
   ],
-  "author": "Janderson Lemos",
+  "author": "Janderson Lemos <jsolemos@gmai.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jandersonss/jobs-queue-manager/issues"

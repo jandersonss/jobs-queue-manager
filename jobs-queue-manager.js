@@ -111,7 +111,6 @@ class JobsQueueManager {
         });
 
         if (this.fila.length === 0) {
-            this.log('info', 'Check ', this.intervalCheckTasksToExecute);
             setTimeout(this.runTasks.bind(this), this.intervalCheckTasksToExecute);
         } else {
             this.log('info', '- Tarefas em execução: %s \n- %s \n', this.fila.length, tasksNames.join('\n- '));
