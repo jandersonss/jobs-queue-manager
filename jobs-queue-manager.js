@@ -70,18 +70,17 @@ class JobsQueueManager {
         };
         return moment(Date.now()).diff(task.lastExecution, getTypeInterval(task.intervalType), true) >= task.interval;
     }
-    getMaxExecution(){
-        return this.maxTimeExecutionLimit > 0 ? Number(this.maxTimeExecutionLimit/1/60/60/1000).toFixed(2) : 0;
+    getMaxExecution() {
+        return this.maxTimeExecutionLimit > 0 ? Number(this.maxTimeExecutionLimit / 1 / 60 / 60 / 1000).toFixed(2) : 0;
     }
 
-    checkMaxTimeExecutionLimit(resolve, reject){
-        this.getMaxExecution();
-        setTimeout(()=>{
+    checkMaxTimeExecutionLimit(resolve, reject) {
+        setTimeout(() => {
             resolve({
                 mensagem: `Limite máximo de execução de  excedido. `
             });
         }, this.maxTimeExecutionLimit);
-    }   
+    }
     /**
      *  Inicia a verifição e execução das tarefas
      */
@@ -90,7 +89,7 @@ class JobsQueueManager {
         this.tasksList.filter((task) => {
             if (this.checkInteval(task)) {
                 task.lastExecution = Date.now();
-                
+
                 tasksNames.push(task.function.name || 'AnonymousFunction');
                 // Adiciona promessa a fila de execução
                 this.fila.push(new Promise((resolve, reject) => {
@@ -198,7 +197,7 @@ class JobsQueueManager {
 
     log(type, ...objs) {
         if (!console.hasOwnProperty(type)) {
-            console.error("Tipo de Log informado não existe. [log,info,error,dir]");
+            return console.error("Tipo de Log informado não existe. [log,info,error,dir]");
         }
         console[type](...objs);
     }
